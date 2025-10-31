@@ -25,9 +25,9 @@ func main() {
 	deploymentName := "webserver"
 	nameSpace := "default"
 	k8sDeployment.List(*client, apiv1.NamespaceAll)
-	k8sDeployment.PerformDeployment(*client, nameSpace, deploymentName, "nginx:latest", 1)
+	k8sDeployment.PerformDeployment(*client, nameSpace, deploymentName, "nginx:alpine", 1)
 	k8sDeployment.Scale(*client, nameSpace, deploymentName, 5)
-	k8sDeployment.ChangeImage(*client, nameSpace, deploymentName, "nginx:latest")
+	k8sDeployment.ChangeImage(*client, nameSpace, deploymentName, "nginx:alpine")
 	k8sDeployment.Delete(*client, nameSpace, deploymentName)
 
 }
